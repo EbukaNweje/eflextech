@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 // import Img from "./asset/user.gif" 
 import Logo from "../asset/Et.jpg" 
 import FunctionService from "../services/Function";
@@ -15,7 +15,7 @@ const Useradd = ({ id, setFormId }) => {
     const [address, setAddress] = useState('')
     const [text, setText] = useState('')
     // const [avater, setAvater] = useState('')
-    const [check, setCheck] = useState(false)
+    // const [check, setCheck] = useState(false)
     const [message, setMessage] = useState({ error: false, msg: "" });
     
     // const setval = (event)=> {
@@ -65,28 +65,28 @@ const Useradd = ({ id, setFormId }) => {
         setText("");
       };
     
-      const editHandler = async () => {
-        setMessage("");
-        try {
-          const docSnap = await FunctionService.getBook(id);
-          console.log("the record is :", docSnap.data());
-          setName(docSnap.data().name);
-          setEmail(docSnap.data().email);
-          setPhone(docSnap.data().phone);
-          setAddress(docSnap.data().address);
-          setText(docSnap.data().text);
-        //   setVal(docSnap.data().val);
-        } catch (err) {
-          setMessage({ error: true, msg: err.message });
-        }
-      };
+    //   const editHandler = async () => {
+    //     setMessage("");
+    //     try {
+    //       const docSnap = await FunctionService.getForm(id);
+    //       console.log("the record is :", docSnap.data());
+    //       setName(docSnap.data().name);
+    //       setEmail(docSnap.data().email);
+    //       setPhone(docSnap.data().phone);
+    //       setAddress(docSnap.data().address);
+    //       setText(docSnap.data().text);
+    //     //   setVal(docSnap.data().val);
+    //     } catch (err) {
+    //       setMessage({ error: true, msg: err.message });
+    //     }
+    //   };
     
-      useEffect(() => {
-        console.log("The id here is : ", id);
-        if (id !== undefined && id !== "") {
-          editHandler();
-        }
-      }, [id]);
+    //   useEffect(() => {
+    //     console.log("The id here is : ", id);
+    //     if (id !== undefined && id !== "") {
+    //       editHandler();
+    //     }
+    //   }, [id]);
 
 
 
